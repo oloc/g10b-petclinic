@@ -312,7 +312,8 @@
 					    <srcFile>src/main/resources/db/mysql/initDB.sql</srcFile>
 					  </srcFiles>
 					</configuration>
-				</execution>
+					</execution>
+				</executions>
 			</plugin> <!-- mysql-maven-plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
