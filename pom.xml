@@ -294,7 +294,7 @@
 				<!-- common configuration shared by all executions -->
 				<configuration>
 					<driver>com.mysql.jdbc.Driver</driver>
-					<url>jdbc:mysql://localhost:3306/</url>
+					<url>jdbc:mysql://localhost:3306/petclinic</url>
 					<username>root</username>
 					<password></password>
 				</configuration>
@@ -313,6 +313,20 @@
 					  </srcFiles>
 					</configuration>
 					</execution>
+					<execution>
+					<id>mysql-populate-db</id>
+					<goals>
+					  <goal>execute</goal>
+					</goals>
+					<!-- specific configuration for this execution -->
+					<configuration>
+					  <!-- specify your SQL commands, can be all of the following configurations -->
+					  <autocommit>true</autocommit>
+					  <srcFiles>
+					    <srcFile>src/main/resources/db/mysql/populateDB.sql</srcFile>
+					  </srcFiles>
+					</configuration>
+					</execution>					
 				</executions>
 			</plugin> <!-- mysql-maven-plugin -->
 			<plugin>
