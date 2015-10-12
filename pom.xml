@@ -284,18 +284,35 @@
 				<artifactId>sql-maven-plugin</artifactId>
 				<version>1.5</version>
 				<dependencies>
+					<!-- specify the dependent JDBC driver here -->
 					<dependency>
 						<groupId>mysql</groupId>
 						<artifactId>mysql-connector-java</artifactId>
 						<version>5.1.9</version>
 					</dependency>
 				</dependencies>
+				<!-- common configuration shared by all executions -->
 				<configuration>
 					<driver>com.mysql.jdbc.Driver</driver>
 					<url>jdbc:mysql://localhost:3306/</url>
 					<username>root</username>
 					<password></password>
 				</configuration>
+				<executions>
+					<execution>
+					<id>mysql-init-db</id>
+					<goals>
+					  <goal>execute</goal>
+					</goals>
+					<!-- specific configuration for this execution -->
+					<configuration>
+					  <!-- specify your SQL commands, can be all of the following configurations -->
+					  <autocommit>true</autocommit>
+					  <srcFiles>
+					    <srcFile>src/main/resources/db/mysql/initDB.sql</srcFile>
+					  </srcFiles>
+					</configuration>
+				</execution>
 			</plugin> <!-- mysql-maven-plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
